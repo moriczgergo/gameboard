@@ -6,6 +6,10 @@ body {
 	color: #99B898;
 }
 
+.error {
+	color: red;
+}
+
 a, a:link, a:visited, a:hover, a:active {
 	color: #355c7d;
 }
