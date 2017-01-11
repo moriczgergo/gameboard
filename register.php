@@ -11,6 +11,10 @@ if (empty($_POST)){ //if no reg data sent
 		$password = $_POST["password"];
 		$email = $_POST["email"];
 		$picture = NULL;
+		$games = "{}";
+		$displayname = "--";
+
+		$password = password_hash($password, PASSWORD_DEFAULT);
 
 		if(isset($_POST["displayname"])) { $displayname = $_POST["displayname"]; }
 		if(isset($_FILES["image"])) { $picture = addslashes(file_get_contents($_FILES['image']['tmp_name'])); }
@@ -29,9 +33,9 @@ if (empty($_POST)){ //if no reg data sent
 			die();
 		}
 
-		$sql = "INSERT INTO users (username, password, picture, email) VALUES (?, ?, ?, ?)";
+		$sql = "INSERT INTO users (username, password, picture, email, games, banned, displayname) VALUES (?, ?, ?, ?, ?, ?, ?)";
 		$stmt = $conn->prepare($sql);
-		$stmt->bind_param("ssbs", $username, $password, $picture, $email);
+		$stmt->bind_param("ssbssis", $username, $password, $picture, $email, $games, 0, $displayname);
 		$result = $stmt->execute();
 
 		if ($result === TRUE){
