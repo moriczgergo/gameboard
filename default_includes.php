@@ -11,7 +11,13 @@
 	</head>
 	<body>
 		<center>
-			<a href="index.php" class="logolink"><img src="logo.png" alt="GameBoard"></img></a>
+			<div id = "header">
+				<a href="index.php" class="logolink"><img src="logo.png" alt="GameBoard" class="logo"></img></a>
+				<form action="search.php" method="post" id="searchform">
+					<input name="query" placeholder="Enter username here..." class="searchinput" />
+					<input type="submit" name="submit" value="Search" class="searchinput" />
+				</form>
+			</div>
 			<hr>
 			<div id="footer">
 				<hr>

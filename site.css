@@ -6,6 +6,20 @@ body {
 	color: #99B898;
 }
 
+.logo {
+	float: left;
+}
+
+#searchform {
+	float: right;
+	overflow: hidden;
+}
+
+.searchinput {
+	float: right;
+	clear: both;
+}
+
 .error {
 	color: red;
 }

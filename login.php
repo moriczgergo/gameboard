@@ -10,7 +10,7 @@ include "default_includes.php";
 				<input type="password" name="password" required>
 				<br>
 				<br>
-				<input type="submit" name="submit" value="Register">
+				<input type="submit" name="submit" value="Login">
 			</form>
 	</body>
 </html>
