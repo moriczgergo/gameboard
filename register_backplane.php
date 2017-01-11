@@ -36,7 +36,7 @@ if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["emai
 	if ($result === TRUE){
 		printSuccessPage();
 	} else {
-		//printErrorPage("Something went wrong: " . $conn->error);
+		printErrorPage("Something went wrong: " . $conn->error);
 		die();
 	}
 } else {
@@ -45,7 +45,7 @@ if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["emai
 }
 
 function printErrorPage($error){
-	echo printHtmlPage("<center><h5 class=\"error\">" . $error . "</h5></center>");
+	echo printHtmlPage(printCentered("<h5 class=\"error\">" . $error . "</h5>"));
 }
 
 function printSuccessPage(){
@@ -57,7 +57,7 @@ function printHtmlPage($text){
 }
 
 function printUrl($url, $text){
-	return "<a href=\"" . $url . "\">" . $text . "</a>";
+	return "<p><a href=\"" . $url . "\">" . $text . "</a></p>";
 }
 
 function printCentered($inner){
