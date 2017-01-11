@@ -49,7 +49,7 @@ function printErrorPage($error){
 }
 
 function printWrongPassPage($error){
-	echo printHtmlPage(printCentered(PrintErrorPage("Wrong password.") . printUrl("login.php", "Try again."));
+	echo printHtmlPage(printCentered(PrintErrorPage("Wrong password.") . printUrl("login.php", "Try again.")));
 }
 
 function dashboardRedirect(){
