@@ -6,6 +6,10 @@ body {
 	color: #99B898;
 }
 
+.logolink {
+	text-decoration: none;
+}
+
 .error {
 	color: red;
 }
