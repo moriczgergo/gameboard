@@ -13,7 +13,7 @@
 		<center>
 			<a href="index.php" class="logolink"><img src="logo.png" alt="GameBoard"></img></a>
 			<hr>
-			<div class="footer">
+			<div id="footer">
 				<hr>
 				<p>&copy; 2016 Móricz Gergő - All Rights Reserved - <a href="https://github.com/moriczgergo/gameboard/">GitHub</a> - <a href="https://twitter.com/skiilaa">Twitter</a></p>
 			</div>
