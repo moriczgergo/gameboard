@@ -5,8 +5,8 @@ session_start();
 $username = "";
 $userid = 0;
 
-if (isset($_SESSION["username"]) && isset($_SESSION["user_id"])){
-	$username = $_SESSION["username"];
+if (isset($_SESSION["user_name"]) && isset($_SESSION["user_id"])){
+	$username = $_SESSION["user_name"];
 	$userid = $_SESSION["user_id"];
 } else {
 	header("Location: http://moger.net/gameboard/login.php");
