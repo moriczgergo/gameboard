@@ -17,8 +17,9 @@
 					<input name="query" placeholder="Enter username here..." class="searchinput" />
 					<input type="submit" name="submit" value="Search" class="searchinput" />
 				</form>
+				<br>
+				<hr>
 			</div>
-			<hr>
 			<div id="footer">
 				<hr>
 				<p style="margin-bottom: 0px;">&copy; 2016 Móricz Gergő - All Rights Reserved - <a href="https://github.com/moriczgergo/gameboard/">GitHub</a> - <a href="https://twitter.com/skiilaa">Twitter</a></p>
