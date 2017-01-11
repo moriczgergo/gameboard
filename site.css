@@ -6,9 +6,8 @@ body {
 	color: #99B898;
 }
 
-.logolink:link, .logolink:visited, .logolink:hover, .logolink:active {
+.logolink {
 	text-decoration: none;
-	color: #99B898;
 }
 
 .error {
@@ -16,7 +15,7 @@ body {
 }
 
 a, a:link, a:visited, a:hover, a:active {
-	color: #355c7d;
+	color: #99B898;
 }
 
 h1, h2, h3, h4, h5, h6, p {
