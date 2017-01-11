@@ -3,7 +3,7 @@ include "default_includes.php";
 
 session_start();
 
-if (isset($_SESSION["username"]) && isset($_SESSION["userid"])){
+if (isset($_SESSION["username"]) && isset($_SESSION["user_id"])){
 	$username = $_SESSION["username"];
 	$userid = $_SESSION["user_id"];
 } else {
