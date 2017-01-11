@@ -2,7 +2,7 @@ body {
 	background-color: #2A363B;
 }
 
-.logo {
+.logo, .success{
 	color: #99B898;
 }
 
