@@ -9,6 +9,7 @@ if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["emai
 	$picture = NULL;
 	$games = "{}";
 	$displayname = "--";
+	$banned = FALSE;
 
 	$password = password_hash($password, PASSWORD_DEFAULT);
 
@@ -29,13 +30,13 @@ if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["emai
 
 	$sql = "INSERT INTO users (username, password, picture, email, games, banned, displayname) VALUES (?, ?, ?, ?, ?, ?, ?)";
 	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("ssbssis", $username, $password, $picture, $email, $games, 0, $displayname);
+	$stmt->bind_param("ssbssis", $username, $password, $picture, $email, $games, $banned, $displayname);
 	$result = $stmt->execute();
 
 	if ($result === TRUE){
 		printSuccessPage();
 	} else {
-		printErrorPage("Something went wrong: " . $conn->error);
+		//printErrorPage("Something went wrong: " . $conn->error);
 		die();
 	}
 } else {
