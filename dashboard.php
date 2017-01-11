@@ -2,12 +2,15 @@
 include "default_includes.php";
 
 session_start();
+$username = "";
+$userid = 0;
 
 if (isset($_SESSION["username"]) && isset($_SESSION["user_id"])){
 	$username = $_SESSION["username"];
 	$userid = $_SESSION["user_id"];
 } else {
 	header("Location: http://moger.net/gameboard/login.php");
+	die();
 	// if anyone knows how to redirect to login.php without specifying the whole url, please do a pull request!
 }
 
