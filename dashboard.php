@@ -5,7 +5,7 @@ session_start();
 
 if (isset($_SESSION["username"]) && isset($_SESSION["userid"])){
 	$username = $_SESSION["username"];
-	$userid = $_SESSION["userid"];
+	$userid = $_SESSION["user_id"];
 } else {
 	header("Location: http://moger.net/gameboard/login.php");
 	// if anyone knows how to redirect to login.php without specifying the whole url, please do a pull request!
