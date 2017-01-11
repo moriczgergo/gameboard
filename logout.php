@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (isset($_SESSION["user_name"]) || isset($_SESSION["user_id"])){
 	session_unset();
 }
