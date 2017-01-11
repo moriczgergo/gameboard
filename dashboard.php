@@ -19,7 +19,7 @@ if (isset($_SESSION["user_name"]) && isset($_SESSION["user_id"])){
 	<body>
 		<center>
 			<h3>Welcome, <?php echo $username; ?>!</h3>
-			<h5>This page is under construction...</h5>
+			<h5>This page is under construction... <a href="logout.php">Click here to log out.</a></h5>
 		</center>
 	</body>
 </html>
