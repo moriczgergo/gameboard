@@ -2,12 +2,8 @@ body {
 	background-color: #2A363B;
 }
 
-.logo, .success{
+.success{
 	color: #99B898;
-}
-
-.logolink {
-	text-decoration: none;
 }
 
 .error {
@@ -15,7 +11,7 @@ body {
 }
 
 a, a:link, a:visited, a:hover, a:active {
-	color: #99B898;
+	color: #355c7d;
 }
 
 h1, h2, h3, h4, h5, h6, p {
