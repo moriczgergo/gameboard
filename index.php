@@ -1,5 +1,6 @@
 <?php
 include "default_includes.php";
+session_start();
 ?>
 <html>
 	<body>
