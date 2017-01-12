@@ -12,7 +12,6 @@ body {
 
 .header{
   height:210px;
-  background-color:green;
   display:flex;
   flex-direction:row;
   align-items:center;
