@@ -34,9 +34,6 @@ body {
   margin-left:auto;
   width:250px;
 }
-.header form input{
-  width:90px;
-}
 #footer {
    position:absolute;
    bottom:0;
