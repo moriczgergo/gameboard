@@ -20,8 +20,8 @@
 				<div>invisible</div>
 				<a href="index.php" class="logolink"><img src="logo.png" alt="GameBoard"></img></a>
 				<form action="search.php" method="post" id="searchform">
-					<input name="query" placeholder="Enter username here..." />
-					<input type="submit" name="submit" value="Search" />
+					<input name="query" placeholder="Enter username here..." class="noinputbreak" />
+					<input type="submit" name="submit" value="Search" class="noinputbreak" />
 				</form>
 				<br>
 			</div>
