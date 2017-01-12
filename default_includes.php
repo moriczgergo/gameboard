@@ -11,11 +11,12 @@
 	</head>
 	<body>
 		<center>
-			<div id = "header">
-				<a href="index.php" class="logolink"><img src="logo.png" alt="GameBoard" class="logo"></img></a>
+			<div class="header">
+				<div>invisible</div>
+				<a href="index.php" class="logolink"><img src="logo.png" alt="GameBoard"></img></a>
 				<form action="search.php" method="post" id="searchform">
-					<input name="query" placeholder="Enter username here..." class="searchinput" />
-					<input type="submit" name="submit" value="Search" class="searchinput" />
+					<input name="query" placeholder="Enter username here..." />
+					<input type="submit" name="submit" value="Search" />
 				</form>
 				<br>
 				<hr>
