@@ -19,7 +19,7 @@ body {
 .header>div:first-child {
   margin-right: auto;
   visibility: hidden;
-  width:250px;
+  width:500px;
 }
 .header img{
   width:400px;
@@ -31,7 +31,7 @@ body {
   margin:0;
   padding:0;
   margin-left:auto;
-  width:250px;
+  width:500px;
 }
 
 #searchform {
