@@ -16,9 +16,8 @@ body {
 }
 
 .searchinput {
-	float: right;
-	clear: both;
-	position: absolute;
+	position:absolute;
+	right:0;
 }
 
 .error {
