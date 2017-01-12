@@ -18,8 +18,10 @@ if (isset($_POST["username"]) && isset($_POST["password"])){
 		die();
 	}
 
-	$sql = "SELECT password, id FROM users WHERE username=\"" . $username . "\"";
-	$result = $conn->query($sql);
+	$sql = "SELECT password, id FROM users WHERE username=?";
+	$stmt = $conn->prepare($sql);
+	$stmt->bind_param("s", $username);
+	$result = $stmt->execute();
 
 	if ($result->num_rows == 1){
 		$row = $result->fetch_assoc();
