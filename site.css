@@ -20,7 +20,7 @@ body {
 .header>div:first-child {
   margin-right: auto;
   visibility: hidden;
-  width:100px;
+  width:250px;
 }
 .header img{
   width:400px;
@@ -32,7 +32,7 @@ body {
   margin:0;
   padding:0;
   margin-left:auto;
-  width:100px;
+  width:250px;
 }
 .header form input{
   width:90px;
