@@ -34,12 +34,12 @@ if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["emai
 	$result_ucheck = $stmt_ucheck->execute();
 
 	if ($result_ucheck->num_rows == 0){
-		$sql = "INSERT INTO users (username, password, picture, email, games, banned, displayname) VALUES (?, ?, ?, ?, ?, ?, ?)";
-		$stmt = $conn->prepare($sql);
-		$stmt->bind_param("ssbssis", $username, $password, $picture, $email, $games, $banned, $displayname);
-		$result = $stmt->execute();
+		$sql_insert = "INSERT INTO users (username, password, picture, email, games, banned, displayname) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		$stmt_insert = $conn->prepare($sql_insert);
+		$stmt_insert->bind_param("ssbssis", $username, $password, $picture, $email, $games, $banned, $displayname);
+		$result_insert = $stmt_insert->execute();
 
-		if ($result === TRUE){
+		if ($result_insert === TRUE){
 			printSuccessPage();
 		} else {
 			printErrorPage("Something went wrong: " . $conn->error);
