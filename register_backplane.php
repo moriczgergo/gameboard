@@ -28,12 +28,12 @@ if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["emai
 		die();
 	}
 
-	$sql = "SELECT username FROM users WHERE username=?";
-	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("s", $username);
-	$result = $stmt->execute();
+	$sql_ucheck = "SELECT username FROM users WHERE username=?";
+	$stmt_ucheck = $conn->prepare($sql_ucheck);
+	$stmt_ucheck->bind_param("s", $username);
+	$result_ucheck = $stmt_ucheck->execute();
 
-	if ($result->num_rows == 0){
+	if ($result_ucheck->num_rows == 0){
 		$sql = "INSERT INTO users (username, password, picture, email, games, banned, displayname) VALUES (?, ?, ?, ?, ?, ?, ?)";
 		$stmt = $conn->prepare($sql);
 		$stmt->bind_param("ssbssis", $username, $password, $picture, $email, $games, $banned, $displayname);
