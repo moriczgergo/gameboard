@@ -28,17 +28,28 @@ if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["emai
 		die();
 	}
 
-	$sql = "INSERT INTO users (username, password, picture, email, games, banned, displayname) VALUES (?, ?, ?, ?, ?, ?, ?)";
+	$sql = "SELECT username FROM users WHERE username=?";
 	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("ssbssis", $username, $password, $picture, $email, $games, $banned, $displayname);
+	$stmt->bind_param("s", $username);
 	$result = $stmt->execute();
 
-	if ($result === TRUE){
-		printSuccessPage();
+	if ($result->num_rows == 0){
+		$sql = "INSERT INTO users (username, password, picture, email, games, banned, displayname) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		$stmt = $conn->prepare($sql);
+		$stmt->bind_param("ssbssis", $username, $password, $picture, $email, $games, $banned, $displayname);
+		$result = $stmt->execute();
+
+		if ($result === TRUE){
+			printSuccessPage();
+		} else {
+			printErrorPage("Something went wrong: " . $conn->error);
+			die();
+		}
 	} else {
-		printErrorPage("Something went wrong: " . $conn->error);
-		die();
+		printErrorPage("Username is already taken.");
 	}
+
+	
 } else {
 	printErrorPage("You didn't enter all required info.");
 	die();
