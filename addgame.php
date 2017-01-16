@@ -24,7 +24,7 @@ if (isset($_POST["name"]) && isset($_POST["level"])){
 
 	$sql = "SELECT games FROM users WHERE username = ?";
 	$stmt = $conn->prepare($sql);
-	$stmt->bind_param("s", $_SESSION["username"]); //to-do: check if session["username"] exists
+	$stmt->bind_param("s", $_SESSION["user_name"]); //to-do: check if session["username"] exists
 	$result = $stmt->execute();
 
 	if ($result === FALSE){
