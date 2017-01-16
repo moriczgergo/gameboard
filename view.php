@@ -96,9 +96,12 @@ function display($username, $displayname, $games){
 				<table style="border-collapse: collapse;">
 					<?php
 						$keys = array_keys($games_array);
-						unset($keys["timestamp"]);
+						unset($keys["timestamp"]); // y u no work
+						// challange accepted
 						foreach($keys as $key){
-							echo "<tr style=\"border: none;\"><td style=\"border-right: solid 1px #ffffff; color: #ffffff;\">" . $key . "</td><td style=\"border-left: solid 1px #ffffff; color: #ffffff;\">" . $games_array[$key] . "</td></tr>";
+							if ($key != "timestamp"){
+								echo "<tr style=\"border: none;\"><td style=\"border-right: solid 1px #ffffff; color: #ffffff;\">" . $key . "</td><td style=\"border-left: solid 1px #ffffff; color: #ffffff;\">" . $games_array[$key] . "</td></tr>";
+							} // success kid
 						}
 					?>
 				</table>
