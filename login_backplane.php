@@ -18,7 +18,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])){
 		die();
 	}
 
-	$sql = "SELECT password, id FROM users WHERE username=?";
+	$sql = "SELECT password, id FROM users WHERE username = ?";
 	$stmt = $conn->prepare($sql);
 	$stmt->bind_param("s", $username);
 	$result = $stmt->execute();
