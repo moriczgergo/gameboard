@@ -65,7 +65,7 @@ if (isset($_GET["id"])){
 function apiUpdate($games){
 	//this doesn't actually update api stuff yet, just the timestamp
 	var_dump($games);
-	$return = $games;
+	$return = (array)$games;
 	var_dump($return);
 	$keys = array_keys($return);
 	var_dump($keys);
@@ -80,11 +80,12 @@ function apiUpdate($games){
 		$return["timestamp"] = $time;
 	}
 	var_dump($return);
-	return $return;
+	return (object)$return;
 }
 
 function display($username, $displayname, $games){
 	//HTML MAGIC!
+	$games_array = (array)$games
 	?>
 	<html>
 		<body>
@@ -100,10 +101,10 @@ function display($username, $displayname, $games){
 				<br>
 				<table style="border-collapse: collapse;">
 					<?php
-						$keys = array_keys($games);
+						$keys = array_keys($games_array);
 						unset($keys["timestamp"]);
 						foreach($keys as $key){
-							echo "<tr style=\"border: none;\"><td style=\"border-right: solid 1px #ffffff;\">" . $key . "</td><td style=\"border-left: solid 1px #ffffff;\">" . $games[$key] . "</td></tr>";
+							echo "<tr style=\"border: none;\"><td style=\"border-right: solid 1px #ffffff;\">" . $key . "</td><td style=\"border-left: solid 1px #ffffff;\">" . $games_array[$key] . "</td></tr>";
 						}
 					?>
 				</table>
