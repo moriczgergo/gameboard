@@ -40,7 +40,8 @@ if (isset($_GET["id"])){
 
 			$sql = "UPDATE `users` SET `games` = ? WHERE `id` = ?";
 			$stmt = $conn->prepare($sql);
-			die($conn->error);
+			var_dump($conn->error);
+			die();
 			$stmt->bind_param("si", json_encode($games_new), $id);
 			$result = $stmt->execute();
 
