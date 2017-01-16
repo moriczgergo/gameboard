@@ -105,5 +105,6 @@ function display($username, $displayname, $games){
 			</center>
 		</body>
 	</html>
+<?php
 }
 ?>
