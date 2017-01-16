@@ -31,7 +31,9 @@ if (isset($_GET["id"])){
 
 	if ($stmt->num_rows == 1){
 		$stmt->fetch();
+		var_dump($json);
 		$games = json_decode($json);
+		var_dump($games);
 		$games_new = apiUpdate($games);
 		if ($games_new != $games){
 			$json_new = json_encode($games_new);
@@ -62,7 +64,9 @@ if (isset($_GET["id"])){
 
 function apiUpdate($games){
 	//this doesn't actually update api stuff yet, just the timestamp
+	var_dump($games);
 	$return = $games;
+	var_dump($return);
 	$keys = array_keys($return);
 	$time = time();
 	$timestamp = 0;
@@ -74,7 +78,7 @@ function apiUpdate($games){
 		//insert api updates here
 		$return["timestamp"] = $time;
 	}
-
+	var_dump($return);
 	return $return;
 }
 
