@@ -55,7 +55,7 @@ if (isset($_GET["id"])){
 		} else {
 			//absolute mindfuck
 		}
-		die();
+		die("<center><h1>Fatal error happened.</h1></center>");
 	}
 
 } else {
