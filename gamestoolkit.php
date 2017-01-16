@@ -15,4 +15,9 @@ function apiUpdate($games){
 	}
 	return (object)$return;
 }
+function addGame($games, $name, $level){
+	$return = (array)$games;
+	$return[$name] = $level;
+	return (object)$return;
+}
 ?>
