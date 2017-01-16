@@ -74,7 +74,6 @@ function apiUpdate($games){
 		//insert api updates here
 		$return["timestamp"] = $time;
 	}
-	var_dump($return);
 	return (object)$return;
 }
 
