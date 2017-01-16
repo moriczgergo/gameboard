@@ -36,7 +36,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])){
 		if (password_verify($password, $selectpassword)){
 			session_start();
 			$_SESSION["user_name"] = $username;
-			$_SESSION["user_id"] = $row["id"];
+			$_SESSION["user_id"] = $selectid;
 			dashboardRedirect();
 			die();
 		} else {
