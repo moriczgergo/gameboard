@@ -1,6 +1,7 @@
 <?php
 include "default_includes.php";
 include "mysql.php";
+include "htmltoolkit.php";
 
 $uploadImage = false;
 
@@ -87,25 +88,5 @@ if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["emai
 } else {
 	printErrorPage("You didn't enter all required info.");
 	die();
-}
-
-function printErrorPage($error){
-	echo printHtmlPage(printCentered("<h5 class=\"error\">" . $error . "</h5>"));
-}
-
-function printSuccessPage(){
-	echo printHtmlPage(printCentered("<h5 class=\"success\">Registration successful.</h5>" . printUrl("login.php", "Click here to log in.")));
-}
-
-function printHtmlPage($text){
-	return "<html><body>" . $text . "</body></html>";
-}
-
-function printUrl($url, $text){
-	return "<p><a href=\"" . $url . "\">" . $text . "</a></p>";
-}
-
-function printCentered($inner){
-	return "<center>" . $inner . "</center>";
 }
 ?>

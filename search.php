@@ -1,6 +1,7 @@
 <?php
 include "default_includes.php";
 include "mysql.php";
+include "htmltoolkit.php";
 
 $query = "";
 
@@ -45,5 +46,4 @@ if ($result->num_rows == 1){
 function printErrorPage($error){
 	echo printHtmlPage(printCentered("<h5 class=\"error\">" . $error . "</h5>");
 }
-function printMultiple($)
 ?>
