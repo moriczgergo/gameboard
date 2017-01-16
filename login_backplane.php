@@ -23,9 +23,17 @@ if (isset($_POST["username"]) && isset($_POST["password"])){
 	$stmt->bind_param("s", $username);
 	$result = $stmt->execute();
 
-	if ($result->num_rows == 1){
-		$row = $result->fetch_assoc();
-		if (password_verify($password, $row["password"])){
+	if ($result === FALSE){
+		printErrorPage("Something went wrong: " . $conn->error);
+		die();
+	}
+
+	$stmt->bind_result($selectpassword, $selectid);
+	$stmt->store_result();
+
+	if ($stmt->num_rows == 1){
+		$stmt->fetch();
+		if (password_verify($password, $selectpassword)){
 			session_start();
 			$_SESSION["user_name"] = $username;
 			$_SESSION["user_id"] = $row["id"];
@@ -35,7 +43,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])){
 			printWrongPassPage();
 		}
 	} else {
-		if ($result->num_rows == 0){
+		if ($stmt->num_rows == 0){
 			printErrorPage("User not found.");
 		} else {
 			printErrorPage("An unexcepted error occured. Code: multiple_users");
