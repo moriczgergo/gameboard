@@ -12,8 +12,6 @@ include "default_includes.php";
 				<input type="text" name="email" required>
 				<p>Display name:</p>
 				<input type="text" name="displayname">
-				<p>Profile picture:</p>
-				<input name="image" type="file">
 				<br>
 				<br>
 				<input type="submit" name="submit" value="Register">
