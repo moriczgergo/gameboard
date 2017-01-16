@@ -42,7 +42,7 @@ if (isset($_POST["name"]) && isset($_POST["level"])){
 
 		$sql = "UPDATE users SET games = ? WHERE username = ?";
 		$stmt = $conn->prepare($sql);
-		$stmt->bind_param("ss", json_encode($games_new), $_SESSION["username"]);
+		$stmt->bind_param("ss", json_encode($games_new), $_SESSION["user_name"]);
 		$result = $stmt->execute();
 
 		if ($result !== TRUE){
@@ -53,7 +53,7 @@ if (isset($_POST["name"]) && isset($_POST["level"])){
 		printSuccessPage("Successfully added game!");
 	} else {
 		//absolute mindfuck (or maybe $_SESSION["username"] doesn't exist)
-		die("<center><h1>Fatal error happened. " . $stmt->num_rows . " " . $_SESSION["username"] . "</h1></center>");
+		die("<center><h1>Fatal error happened. " . $stmt->num_rows . " " . $_SESSION["user_name"] . "</h1></center>");
 	}
 
 } else {
