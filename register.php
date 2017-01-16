@@ -13,7 +13,7 @@ include "default_includes.php";
 				<p>Display name:</p>
 				<input type="text" name="displayname">
 				<p>Profile picture:</p>
-				<input name="image" id="image" accept="image/JPEG" type="file">
+				<input name="image" type="file">
 				<br>
 				<br>
 				<input type="submit" name="submit" value="Register">
