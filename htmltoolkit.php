@@ -1,10 +1,14 @@
 <?php
 function printErrorPage($error){
-	echo printHtmlPage(printCentered("<h5 class=\"error\">" . $error . "</h5>" . printUrl("login.php", "Try again.")));
+	echo printHtmlPage(printCentered("<h5 class=\"error\">" . $error . "</h5>"));
+}
+
+function printSuccessPage($text){
+	printHtmlPage(printCentered("<h5 class=\"success\">" . $text . "</h5>"));
 }
 
 function printWrongPassPage($error){
-	echo printHtmlPage(printCentered(PrintErrorPage("Wrong password.") . printUrl("login.php", "Try again.")));
+	echo printHtmlPage(printCentered(PrintErrorPage("Wrong password.")));
 }
 
 function dashboardRedirect(){
