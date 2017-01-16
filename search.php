@@ -15,7 +15,7 @@ if ($conn->connect_error){
 	die();
 }
 
-$sql = "SELECT id FROM users LIKE '%?%'";
+$sql = "SELECT username, id FROM users LIKE '%?%'";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $username);
 $result = $stmt->execute();
@@ -33,14 +33,17 @@ if ($result->num_rows == 1){
 	}
 } else {
 	if ($result->num_rows == 0){
-		printErrorPage("User not found.");
+		printErrorPage("The search returned no results.");
+		die();
 	} else {
-		printErrorPage("An unexcepted error occured. Code: multiple_users");
+		while($row = $result->fetch_assoc()) {
+        	echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+    	}
 	}
-	die();
 }
 
 function printErrorPage($error){
 	echo printHtmlPage(printCentered("<h5 class=\"error\">" . $error . "</h5>");
 }
+function printMultiple($)
 ?>
