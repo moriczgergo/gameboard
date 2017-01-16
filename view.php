@@ -5,7 +5,7 @@ include "mysql.php";
 if (isset($_GET["id"])){
 	$id = intval($_GET["id"]);
 
-	if (strlen(trim($id))){
+	if (strlen(trim($id)) == 0){
 		header("Location: http://moger.net/gameboard/");
 	}
 
