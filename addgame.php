@@ -50,7 +50,7 @@ if (isset($_POST["name"]) && isset($_POST["level"])){
 			die();
 		}
 
-		printSuccessPage("Successfully added game!");
+		echo "<center><h5 class=\"success\">Adding game successful.</h5></center>";
 	} else {
 		//absolute mindfuck (or maybe $_SESSION["username"] doesn't exist)
 		die("<center><h1>Fatal error happened. " . $stmt->num_rows . " " . $_SESSION["user_name"] . "</h1></center>");
