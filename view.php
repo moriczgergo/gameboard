@@ -1,8 +1,5 @@
 <?php
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-error_reporting(E_ALL);
-ini_set('display_errors',1);
-//include "default_includes.php";
+include "default_includes.php";
 include "mysql.php";
 
 if (isset($_GET["id"])){
@@ -34,17 +31,13 @@ if (isset($_GET["id"])){
 
 	if ($stmt->num_rows == 1){
 		$stmt->fetch();
-		var_dump($json);
 		$games = json_decode($json);
-		var_dump($games);
 		$games_new = apiUpdate($games);
 		if ($games_new != $games){
 			$json_new = json_encode($games_new);
 
 			$sql = "UPDATE `users` SET `games` = ? WHERE `id` = ?";
 			$stmt = $conn->prepare($sql);
-			var_dump($conn->connect_error);
-			die();
 			$stmt->bind_param("si", json_encode($games_new), $id);
 			$result = $stmt->execute();
 
@@ -69,11 +62,8 @@ if (isset($_GET["id"])){
 
 function apiUpdate($games){
 	//this doesn't actually update api stuff yet, just the timestamp
-	var_dump($games);
 	$return = (array)$games;
-	var_dump($return);
 	$keys = array_keys($return);
-	var_dump($keys);
 	$time = time();
 	$timestamp = 0;
 	if (($key = array_search("timestamp", $keys)) !== false){	
