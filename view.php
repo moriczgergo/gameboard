@@ -1,6 +1,6 @@
 <?php
-include "default_includes.php";
-//include "mysql.php";
+//include "default_includes.php";
+include "mysql.php";
 
 if (isset($_GET["id"])){
 	$id = intval($_GET["id"]);
