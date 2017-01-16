@@ -98,7 +98,7 @@ function display($username, $displayname, $games){
 						$keys = array_keys($games_array);
 						unset($keys["timestamp"]);
 						foreach($keys as $key){
-							echo "<tr style=\"border: none;\"><td style=\"border-right: solid 1px #ffffff;\">" . $key . "</td><td style=\"border-left: solid 1px #ffffff;\">" . $games_array[$key] . "</td></tr>";
+							echo "<tr style=\"border: none;\"><td style=\"border-right: solid 1px #ffffff; color: #ffffff;\">" . $key . "</td><td style=\"border-left: solid 1px #ffffff; color: #ffffff;\">" . $games_array[$key] . "</td></tr>";
 						}
 					?>
 				</table>
