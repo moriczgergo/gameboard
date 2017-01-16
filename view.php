@@ -68,6 +68,7 @@ function apiUpdate($games){
 	$return = $games;
 	var_dump($return);
 	$keys = array_keys($return);
+	var_dump($keys);
 	$time = time();
 	$timestamp = 0;
 	if (($key = array_search("timestamp", $keys)) !== false){	
