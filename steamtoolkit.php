@@ -4,10 +4,10 @@ include "config.php";
 function getSteamLongID($customURL){
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_URL, "http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?" . http_build_query(array('key' => $steam_api_key, 'vaintyurl' => $customURL)));
-	var_dump(http_build_query(array('key' => $steam_api_key, 'vaintyurl' => $customURL)));
+	curl_setopt($ch, CURLOPT_URL, "http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?" . http_build_query(array('key' => $steam, 'vaintyurl' => $customURL)));
+	var_dump(http_build_query(array('key' => $steam, 'vaintyurl' => $customURL)));
 	$content = curl_exec($ch);
-	var_dump($steam_api_key);
+	var_dump($steam);
 	var_dump($content);
 	$responseObject = json_decode($content);
 	if ($responseObject === NULL) {
