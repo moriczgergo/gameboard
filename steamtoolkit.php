@@ -64,7 +64,7 @@ function getGameName($appid, $steam){
 function getAchievedAchievementsCount($appid, $steamid, $steam){ //NOTE: I needed to use -1 and -2 here, because Steam may send 1 or 2 as response, and error handling would confuse.
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_URL, "http://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v2/?key=" . $steam . "&appid=" . $appid . "&steamid=" . $steamid);
+	curl_setopt($ch, CURLOPT_URL, "http://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v0001/?key=" . $steam . "&appid=" . $appid . "&steamid=" . $steamid);
 	$content = curl_exec($ch);
 	$responseObject = json_decode($content);
 	if ($responseObject === NULL) {
