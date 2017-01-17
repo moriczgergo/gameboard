@@ -2,5 +2,7 @@
 riot.txt
 # MySQL database login info
 mysql.php
+# Steam API info
+steamapi.php
 # Images
 img/
