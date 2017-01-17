@@ -27,6 +27,17 @@ if (isset($_SESSION["user_name"]) && isset($_SESSION["user_id"])){
 				<input name="level" type="text">
 				<br>
 				<input name="submit" type="submit" value="Add">
+			</form>
+			<br>
+			<h2>Change the levels of your manually added games</h2>
+			<form action="changegame.php" method="POST">
+				<h4>Game Name:</h4> <!-- praise the rhyme lord !-->
+				<input name="name" type="text">
+				<h4>New Level:</h4>
+				<input name="level" type="text">
+				<br>
+				<input name="submit" type="submit" value="Add">
+			</form>
 			<br>
 			<h2>Attach your game accounts</h2>
 			<h3>Coming soon...</h3>
