@@ -69,7 +69,7 @@ if (isset($_POST["customurl"]) && strlen(trim($_POST["customurl"])) > 0){
 			$count = getAchievedAchievementsCount($game, $steamid); //steamtoolkit.php, returns achieved achievement count of specified game, has a WAY too long name
 
 			if ($count == -1){ // error checking
-				printErrorPage("An unknown error happened when handling JSON recieved from the Steam servers."); // htmltoolkit.php
+				printErrorPage("An unknown error happened when handling JSON recieved from the Steam servers. Appid: " . $game . ", SteamID: " . $steamid . ", Count: " . $count); // htmltoolkit.php
 				die();
 			} elseif ($count == -2){
 				printErrorPage("We couldn't access a game that you own."); // htmltoolkit.php
