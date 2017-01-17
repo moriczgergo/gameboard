@@ -27,9 +27,18 @@ if (isset($_SESSION["user_name"]) && isset($_SESSION["user_id"])){
 				<input name="level" type="text">
 				<br>
 				<input name="submit" type="submit" value="Add">
+			</form>
 			<br>
 			<h2>Attach your game accounts</h2>
-			<h3>Coming soon...</h3>
+			<br>
+			<h3>Steam</h3>
+			<form action="addsteam.php" method="POST">
+				<h4>customURL ID (<a href="what_is_customurl_id.php">WTF is this?</a>):</h4>
+				<input name="customurl" type="text">
+				<input name="submit" type="submit" value="Attach">
+			</form>
+			<br>
+			<h3>More coming soon...</h3>
 		</center>
 	</body>
 </html>
