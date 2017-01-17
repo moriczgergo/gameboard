@@ -74,7 +74,9 @@ function getAchievedAchievementsCount($appid, $steamid, $steam){ //NOTE: I neede
 	$responseArrayPlayerstatsArray = (array)$responseArray["playerstats"];
 	$success = $responseArrayPlayerstatsArray["success"];
 	if ($success == false){
-		return -2; //User doesn't have this game.
+		if ($responseArrayPlayerstatsArray["error"] != "Requested app has no stats"){
+			return -2; //User doesn't have this game.
+		}
 	}
 	$achievements = $responseArrayPlayerstatsArray["achievements"];
 	$achievedAchievements = 0;
