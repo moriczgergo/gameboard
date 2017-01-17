@@ -1,5 +1,5 @@
 <?php
-include "steamapi.php";
+include "config.php";
 
 function getSteamLongID($customURL){
 	$ch = curl_init();

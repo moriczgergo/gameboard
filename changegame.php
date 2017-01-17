@@ -1,6 +1,6 @@
 <?php
 include "default_includes.php";
-include "mysql.php";
+include "config.php";
 include "htmltoolkit.php";
 include "gamestoolkit.php";
 
