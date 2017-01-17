@@ -4,7 +4,7 @@ function printErrorPage($error){
 }
 
 function printSuccessPage($text){
-	printHtmlPage(printCentered("<h5 class=\"success\">" . $text . "</h5>"));
+	echo printHtmlPage(printCentered("<h5 class=\"success\">" . $text . "</h5>"));
 }
 
 function printWrongPassPage($error){
