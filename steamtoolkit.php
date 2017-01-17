@@ -64,7 +64,7 @@ function getGameName($appid, $steam){
 function getAchievedAchievementsCount($appid, $steamid, $steam){ //NOTE: I needed to use -1 and -2 here, because Steam may send 1 or 2 as response, and error handling would confuse.
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_URL, "http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=" . $steam . "&appid=" . $appid . "&format=json");
+	curl_setopt($ch, CURLOPT_URL, "http://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v2/?key=" . $steam . "&appid=" . $appid . "&steamid=" . $steamid);
 	$content = curl_exec($ch);
 	$responseObject = json_decode($content);
 	if ($responseObject === NULL) {
@@ -73,9 +73,9 @@ function getAchievedAchievementsCount($appid, $steamid, $steam){ //NOTE: I neede
 	$responseArray = (array)$responseObject;
 	$responseArrayPlayerstatsArray = (array)$responseArray["playerstats"];
 	$success = $responseArrayPlayerstatsArray["success"];
-	/*if ($success == false){
+	if ($success == false){
 		return -2; //User doesn't have this game.
-	}*/
+	}
 	$achievements = $responseArrayPlayerstatsArray["achievements"];
 	$achievedAchievements = 0;
 	foreach ($achievements as $achievement) {
