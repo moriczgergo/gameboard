@@ -1,10 +1,8 @@
 <?php
-include "config.php";
-
-function getSteamLongID($customURL){
+function getSteamLongID($customURL, $steam){
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_URL, "http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=" . $steam . "&vanityurl=" . preg_replace('/\s+/', '+', $journalName));
+	curl_setopt($ch, CURLOPT_URL, "http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=" . $steam . "&vanityurl=" . preg_replace('/\s+/', '+', $customURL));
 	$content = curl_exec($ch);
 	var_dump($content);
 	$responseObject = json_decode($content);
@@ -22,7 +20,7 @@ function getSteamLongID($customURL){
 	}
 }
 
-function getOwnedGames($steamID){
+function getOwnedGames($steamID, $steam){
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_URL, "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=" . $steam . "&steamid=" . $steam . "&format=json");
@@ -44,7 +42,7 @@ function getOwnedGames($steamID){
 	return $gameidarr;
 }
 
-function getGameName($appid){
+function getGameName($appid, $steam){
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_URL, "http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=" . $steam . "&appid=" . $appid . "&format=json");
@@ -60,7 +58,7 @@ function getGameName($appid){
 	return $responseArray["game"]["gameName"];
 }
 
-function getAchievedAchievementsCount($appid, $steamid){ //NOTE: I needed to use -1 and -2 here, because Steam may send 1 or 2 as response, and error handling would confuse.
+function getAchievedAchievementsCount($appid, $steamid, $steam){ //NOTE: I needed to use -1 and -2 here, because Steam may send 1 or 2 as response, and error handling would confuse.
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_URL, "http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=" . $steam . "&appid=" . $appid . "&format=json");

@@ -8,7 +8,7 @@ include "steamtoolkit.php";
 if (isset($_POST["customurl"]) && strlen(trim($_POST["customurl"])) > 0){
 	$customurl = $_POST["customurl"];
 
-	$steamid = getSteamLongID($customurl); // steamtoolkit.php, returns Steam64 ID from customURL ID
+	$steamid = getSteamLongID($customurl, $steam); // steamtoolkit.php, returns Steam64 ID from customURL ID
 
 	if ($steamid == 1){ // error checking
 		printErrorPage("An unknown error happened when handling JSON recieved from the Steam servers. SteamID: " . $steamid); // htmltoolkit.php
@@ -21,7 +21,7 @@ if (isset($_POST["customurl"]) && strlen(trim($_POST["customurl"])) > 0){
 		die();
 	}
 
-	$ownedGames = getOwnedGames($steamid); // steamtoolkit.php, returns array of gameIDs
+	$ownedGames = getOwnedGames($steamid, $steam); // steamtoolkit.php, returns array of gameIDs
 
 	if ($ownedGames == 1){ // error checking
 		printErrorPage("An unknown error happened when handling JSON recieved from the Steam servers. ownedGames: " . $ownedGames . ", steamID: " . $steamid); // htmltoolkit.php
@@ -56,7 +56,7 @@ if (isset($_POST["customurl"]) && strlen(trim($_POST["customurl"])) > 0){
 		$games = json_decode($json);
 		foreach ($ownedGames as $game) { // game = an appid
 
-			//$name = getGameName($game); // steamtoolkit.php, returns specified game's name // NOTE: Decided to do this in display();
+			//$name = getGameName($game, $steam); // steamtoolkit.php, returns specified game's name // NOTE: Decided to do this in display();
 
 			/*if ($name == 1){ // error checking
 				printErrorPage("An unknown error happened when handling JSON recieved from the Steam servers."); // htmltoolkit.php
@@ -66,7 +66,7 @@ if (isset($_POST["customurl"]) && strlen(trim($_POST["customurl"])) > 0){
 				die();
 			}*/
 
-			$count = getAchievedAchievementsCount($game, $steamid); //steamtoolkit.php, returns achieved achievement count of specified game, has a WAY too long name
+			$count = getAchievedAchievementsCount($game, $steamid, $steam); //steamtoolkit.php, returns achieved achievement count of specified game, has a WAY too long name
 
 			if ($count == -1){ // error checking
 				printErrorPage("An unknown error happened when handling JSON recieved from the Steam servers. Appid: " . $game . ", SteamID: " . $steamid . ", Count: " . $count); // htmltoolkit.php
