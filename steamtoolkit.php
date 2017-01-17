@@ -37,8 +37,9 @@ function getOwnedGames($steamID, $steam){
 	}
 	$games = (array)$responseArrayResponseArrray["games"];
 	$gameidarr = array();
-	foreach ($games as $gamearr) {
-		array_push($gameidarr, (array)$gamearr["appid"]);
+	foreach ($games as $gameobj) {
+		$gamearr = (array)$gameobj;
+		array_push($gameidarr, $gamearr["appid"]);
 	}
 	return $gameidarr;
 }
