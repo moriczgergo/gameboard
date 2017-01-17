@@ -11,7 +11,7 @@ if (isset($_POST["customurl"]) && strlen(trim($_POST["customurl"])) > 0){
 	$steamid = getSteamLongID($customurl); // steamtoolkit.php, returns Steam64 ID from customURL ID
 
 	if ($steamid == 1){ // error checking
-		printErrorPage("An unknown error happened when handling JSON recieved from the Steam servers."); // htmltoolkit.php
+		printErrorPage("An unknown error happened when handling JSON recieved from the Steam servers. SteamID: " . $steamid); // htmltoolkit.php
 		die();
 	} elseif ($steamid == 2){
 		printErrorPage("The customURL ID you entered does not exist in Steam's database."); // htmltoolkit.php
@@ -24,7 +24,7 @@ if (isset($_POST["customurl"]) && strlen(trim($_POST["customurl"])) > 0){
 	$ownedGames = getOwnedGames($steamid); // steamtoolkit.php, returns array of gameIDs
 
 	if ($ownedGames == 1){ // error checking
-		printErrorPage("An unknown error happened when handling JSON recieved from the Steam servers."); // htmltoolkit.php
+		printErrorPage("An unknown error happened when handling JSON recieved from the Steam servers. ownedGames: " . $ownedGames . ", steamID: " . $steamid); // htmltoolkit.php
 		die();
 	} elseif ($ownedGames == 2) {
 		printErrorPage("You have no games."); // htmltoolkit.php
