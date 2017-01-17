@@ -23,7 +23,7 @@ function getSteamLongID($customURL, $steam){
 function getOwnedGames($steamID, $steam){
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_URL, "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=" . $steam . "&steamid=" . $steam . "&format=json");
+	curl_setopt($ch, CURLOPT_URL, "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=" . $steam . "&steamid=" . $steamID . "&format=json");
 	$content = curl_exec($ch);
 	$responseObject = json_decode($content);
 	if ($responseObject === NULL) {
