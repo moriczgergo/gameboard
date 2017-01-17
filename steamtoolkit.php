@@ -78,8 +78,9 @@ function getAchievedAchievementsCount($appid, $steamid, $steam){ //NOTE: I neede
 	}
 	$achievements = $responseArrayPlayerstatsArray["achievements"];
 	$achievedAchievements = 0;
-	foreach ($achievements as $achievement) {
-		if($achievement["achieved"] == 1){
+	foreach ($achievements as $achievementobj) {
+		$achievementarr = (array)$achievementobj;
+		if($achievementarr["achieved"] == 1){
 			$achievedAchievements++;
 		}
 	}
