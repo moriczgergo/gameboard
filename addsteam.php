@@ -5,6 +5,8 @@ include "gamestoolkit.php";
 include "htmltoolkit.php";
 include "steamtoolkit.php";
 
+session_start();
+
 if (isset($_POST["customurl"]) && strlen(trim($_POST["customurl"])) > 0){
 	$customurl = $_POST["customurl"];
 
