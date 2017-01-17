@@ -73,9 +73,9 @@ function getAchievedAchievementsCount($appid, $steamid, $steam){ //NOTE: I neede
 	$responseArray = (array)$responseObject;
 	$responseArrayPlayerstatsArray = (array)$responseArray["playerstats"];
 	$success = $responseArrayPlayerstatsArray["success"];
-	if ($success == false){
+	/*if ($success == false){
 		return -2; //User doesn't have this game.
-	}
+	}*/
 	$achievements = $responseArrayPlayerstatsArray["achievements"];
 	$achievedAchievements = 0;
 	foreach ($achievements as $achievement) {
