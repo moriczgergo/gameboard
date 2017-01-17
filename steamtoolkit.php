@@ -14,7 +14,7 @@ function getSteamLongID($customURL, $steam){
 	if($success == 42){
 		return 2; // user not found
 	} elseif ($success == 1) {
-		return $responseArray["response"]["steamid"]; // steamid64 value
+		return $responseArrayResponseArrray["steamid"]; // steamid64 value
 	} else {
 		return 3; // unknown error
 	}
