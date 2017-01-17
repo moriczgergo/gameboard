@@ -5,6 +5,7 @@ function getSteamLongID($customURL){
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_URL, "http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?" . http_build_query(array('key' => $steamapikey, 'vaintyurl' => $customURL)));
+	var_dump(http_build_query(array('key' => $steamapikey, 'vaintyurl' => $customURL)));
 	$content = curl_exec($ch);
 	var_dump($content);
 	$responseObject = json_decode($content);
