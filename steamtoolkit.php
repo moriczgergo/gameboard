@@ -88,4 +88,12 @@ function getAchievedAchievementsCount($appid, $steamid, $steam){ //NOTE: I neede
 	}
 	return $achievedAchievements;
 }
+
+function isSteamEntry($entry){
+	return preg_match('/\d+_steam/', $entry);
+}
+
+function entryCutSteam($entry){
+	return substr($entry, 0, strlen($entry) - strlen("_steam"));
+}
 ?>

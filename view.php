@@ -3,6 +3,8 @@ include "default_includes.php";
 include "config.php";
 include "htmltoolkit.php";
 include "gamestoolkit.php";
+include "simpletoolkit.php";
+include "steamtoolkit.php";
 
 if (isset($_GET["id"])){
 	$id = intval($_GET["id"]);
@@ -64,18 +66,11 @@ if (isset($_GET["id"])){
 
 function display($username, $displayname, $games){
 	//HTML MAGIC!
-	$games_array = (array)$games
+	$games_array = (array)$games;
 	?>
 	<html>
 		<body>
 			<center>
-				<?php
-					if(file_exists("img/" . $username . ".png")){
-				?>
-				<img src="img/<?php echo $username; ?>.png">
-				<?php
-					}
-				?>
 				<h2><?php echo $username; ?></h2>
 				<br>
 				<table style="border-collapse: collapse;">
@@ -84,8 +79,19 @@ function display($username, $displayname, $games){
 						unset($keys["timestamp"]); // y u no work
 						// challange accepted
 						foreach($keys as $key){
-							if ($key != "timestamp"){
-								echo "<tr style=\"border: none;\"><td style=\"border-right: solid 1px #ffffff; color: #ffffff;\">" . $key . "</td><td style=\"border-left: solid 1px #ffffff; color: #ffffff;\">" . $games_array[$key] . "</td></tr>";
+							$game = $key;
+							if (isSteamEntry($game)){
+								$game = getGameName(entryCutSteam($game), $steam));
+								if ($game == 1) { //error checking
+									printErrorPage("An unknown error happened when handling JSON recieved from the Steam servers."); // htmltoolkit.php
+									die();
+								} elseif ($game == 2){
+									printErrorPage("We couldn't access a game that you own."); // htmltoolkit.php
+									die();
+								}
+							}
+							if ($game != "timestamp" && $games_array[$game] != "0 achievements"){
+								echo "<tr style=\"border: none;\"><td style=\"border-right: solid 1px #ffffff; color: #ffffff;\">" . $key . "</td><td style=\"border-left: solid 1px #ffffff; color: #ffffff;\">" . $games_array[$game] . "</td></tr>";
 							} // success kid
 						}
 					?>

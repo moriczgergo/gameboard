@@ -85,6 +85,8 @@ if (isset($_POST["customurl"]) && strlen(trim($_POST["customurl"])) > 0){
 			$games = addGame($games, $name, $count);
 		}
 
+		$games = addGame($games, "id_steam", $steamid);
+
 		$sql = "UPDATE users SET games = ? WHERE username = ?";
 		$stmt = $conn->prepare($sql);
 		$stmt->bind_param("ss", json_encode($games), $_SESSION["user_name"]);
