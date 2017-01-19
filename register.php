@@ -1,5 +1,5 @@
 <?php
-include "default_includes.php";
+include_once "default_includes.php";
 ?>
 <html>
 	<body>

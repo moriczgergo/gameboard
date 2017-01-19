@@ -1,10 +1,10 @@
 <?php
-include "default_includes.php";
-include "config.php";
-include "htmltoolkit.php";
-include "gamestoolkit.php";
-include "simpletoolkit.php";
-include "steamtoolkit.php";
+include_once "default_includes.php";
+include_once "config.php";
+include_once "htmltoolkit.php";
+include_once "gamestoolkit.php";
+include_once "simpletoolkit.php";
+include_once "steamtoolkit.php";
 
 if (isset($_GET["id"])){
 	$id = intval($_GET["id"]);
@@ -66,7 +66,7 @@ if (isset($_GET["id"])){
 
 function display($username, $displayname, $games){
 	//HTML MAGIC!
-	$games_array = (array)$games;
+	$games_array = (array)$games
 	?>
 	<html>
 		<body>

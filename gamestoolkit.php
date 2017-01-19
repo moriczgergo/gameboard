@@ -1,6 +1,6 @@
 <?php
-include "steamtoolkit.php";
-include "config.php";
+include_once "steamtoolkit.php";
+include_once "config.php";
 
 function apiUpdate($games){
 	//this doesn't actually update api stuff yet, just the timestamp

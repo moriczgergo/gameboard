@@ -1,9 +1,9 @@
 <?php
-include "default_includes.php";
-include "config.php";
-include "gamestoolkit.php";
-include "htmltoolkit.php";
-include "steamtoolkit.php";
+include_once "default_includes.php";
+include_once "config.php";
+include_once "gamestoolkit.php";
+include_once "htmltoolkit.php";
+include_once "steamtoolkit.php";
 
 session_start();
 
