@@ -79,19 +79,36 @@ function display($username, $displayname, $games){
 						unset($keys["timestamp"]); // y u no work
 						// challange accepted
 						foreach($keys as $key){
+							global $steam;
 							$game = $key;
-							if (isSteamEntry($game)){
-								$game = getGameName(entryCutSteam($game), $steam));
-								if ($game == 1) { //error checking
-									printErrorPage("An unknown error happened when handling JSON recieved from the Steam servers."); // htmltoolkit.php
+							$gamename = $key;
+							if (preg_match('/\d+_steam/', $game)){
+								if ($steam === NULL){
+									printErrorPage("Steam is NULL!");
 									die();
-								} elseif ($game == 2){
-									printErrorPage("We couldn't access a game that you own."); // htmltoolkit.php
+								}
+								$gamename = getGameName(substr($game, 0, strlen($game) - strlen("_steam")), $steam);
+								if ($gamename == 1) { //error checking
+									printErrorPage("An unknown error happened when handling JSON recieved from the Steam servers."); // htmltoolkit.php
 									die();
 								}
 							}
-							if ($game != "timestamp" && $games_array[$game] != "0 achievements"){
-								echo "<tr style=\"border: none;\"><td style=\"border-right: solid 1px #ffffff; color: #ffffff;\">" . $key . "</td><td style=\"border-left: solid 1px #ffffff; color: #ffffff;\">" . $games_array[$game] . "</td></tr>";
+							if ($game != "timestamp" && $games_array[$key] != 0 && $key != "id_steam"){
+								echo "<tr style=\"border: none;\"><td style=\"border-right: solid 1px #ffffff; color: #ffffff;\">";
+								if (preg_match('/\d+_steam/', $game)){
+									echo "<a href=\"http://store.steampowered.com/app/";
+									echo substr($game, 0, strlen($game) - strlen("_steam"));
+									echo "/\">";
+								}
+								echo $gamename;
+								if (preg_match('/\d+_steam/', $game)){
+									echo "</a>";
+								}
+								echo "</td><td style=\"border-left: solid 1px #ffffff; color: #ffffff;\">" . $games_array[$key];
+								if (preg_match('/\d+_steam/', $game)){
+                                                                        echo " achievements";
+                                                                }
+								echo "</td></tr>";
 							} // success kid
 						}
 					?>

@@ -3,7 +3,6 @@ function getSteamLongID($customURL, $steam){
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_URL, "http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=" . $steam . "&vanityurl=" . preg_replace('/\s+/', '+', $customURL));
-	$content = curl_exec($ch);
 	$responseObject = json_decode($content);
 	if ($responseObject === NULL) {
 		return 1; // response wasn't json
@@ -44,21 +43,19 @@ function getOwnedGames($steamID, $steam){
 	return $gameidarr;
 }
 
-function getGameName($appid, $steam){
+function getGameName($appid){
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_URL, "http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=" . $steam . "&appid=" . $appid . "&format=json");
+	curl_setopt($ch, CURLOPT_URL, "http://store.steampowered.com/api/appdetails?appids=" . $appid);
 	$content = curl_exec($ch);
 	$responseObject = json_decode($content);
 	if ($responseObject === NULL) {
 		return 1; // response wasn't json
 	}
-	$responseArray = (array)$responseObject;
-	if($responseArray == array()){
-		return 2; // game doesn't exist
-	}
-	$responseArrayGameArray = (array)$responseArray["response"];
-	return $responseArrayGameArray["gameName"];
+	$foo = (array)$responseObject;
+	$bar = (array)array_values($foo)[0];
+	$foobar = (array)$bar["data"];
+	return $foobar["name"];
 }
 
 function getAchievedAchievementsCount($appid, $steamid, $steam){ //NOTE: I needed to use -1 and -2 here, because Steam may send 1 or 2 as response, and error handling would confuse.

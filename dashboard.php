@@ -19,6 +19,7 @@ if (isset($_SESSION["user_name"]) && isset($_SESSION["user_id"])){
 		<center>
 			<h3>Welcome, <?php echo $username; ?>!</h3>
 			<br>
+			<h3>Your link: <a href="view.php?id=<?php echo $userid; ?>">http://moger.net/gameboard/view.php?id=<?php echo $userid; ?></a></h3>
 			<h2>Add a game manually</h2>
 			<form action="addgame.php" method="POST">
 				<h4>Game Name:</h4> <!-- praise the rhyme lord !-->

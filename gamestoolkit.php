@@ -3,6 +3,7 @@ include_once "steamtoolkit.php";
 include_once "config.php";
 
 function apiUpdate($games){
+	global $steam;
 	//this doesn't actually update api stuff yet, just the timestamp
 	$return = (array)$games;
 	$keys = array_keys($return);
